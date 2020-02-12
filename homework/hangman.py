@@ -22,19 +22,20 @@ for x in range(0, len(A)):
 
 #run game as along as play is true
 while play == True:
-    
+
     # Ask the user to guess a letter
     letter = str(input("Guess a letter: "))
 
-    #if the input that is entered is nothing, make it an underscore
+    #if the input that is entered is nothing,
+    #make it an underscore
     if (letter == ''):
         letter = '_'
 
     # Check to see if that letter is in the Answer
     if (letter not in A[:] or letter == ''):
         print("BAD GUESS!")
-        chances = chances + 1
-        print("YOU HAVE %d CHANCES LEFT!" % (6-chances))
+        attmepts = attmepts + 1
+        print("YOU HAVE %d CHANCES LEFT!" % (6-attmepts))
 
     for currentletter in A[:]:
         # If the letter the user guessed is found in the answer,
@@ -46,9 +47,9 @@ while play == True:
     # separating each letter
     print(' '.join(str(n) for n in L))
 
-    #Check the amount of tries user has,
-    #if 
-    if (chances == 6):
+    #Check to see if attempts is equal to 6 incorrect attempts ,
+    #if amount of incorrect attempts is 6, then end the game 
+    if (attmepts == 6):
         play = False
         print("BETTER LUCK NEXT TIME!")
 
