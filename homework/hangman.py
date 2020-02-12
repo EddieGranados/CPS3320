@@ -15,11 +15,14 @@ word_list = ['hangman', 'anthropology', 'nose',
 #randomly assign a word to A, and make the word a list
 A = list(random.choice(word_list))
 
-#for 0 to the length of A, at index x, add an underscore to L
+#loop through 0 to length of A,
+#at index x, add an underscore to that index point of L 
 for x in range(0, len(A)):
     L.insert(x, '_')
 
+#run game as along as play is true
 while play == True:
+    
     # Ask the user to guess a letter
     letter = str(input("Guess a letter: "))
 
@@ -43,12 +46,14 @@ while play == True:
     # separating each letter
     print(' '.join(str(n) for n in L))
 
-    # Test to see if the word has been successfully completed,
-    # and if so, end the loop
+    #Check the amount of tries user has,
+    #if 
     if (chances == 6):
         play = False
         print("BETTER LUCK NEXT TIME!")
 
+    # Test to see if the word has been successfully completed,
+    # and if so, end the loop
     if (L == A):
         play = False
         print("GREAT JOB!")
