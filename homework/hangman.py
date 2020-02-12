@@ -5,17 +5,19 @@ import random
 play = True
 chances = 0
 
-A = [] #Answer List
-L = [] #Input List
+A = []  # Answer List
+L = []  # Input List
+
 #list of words to choose from
-word_list = ['hangman', 'anthropology', 'nose', 'gaurd', 'mother', 'awesome', 'north']
+word_list = ['hangman', 'anthropology', 'nose',
+             'gaurd', 'mother', 'awesome', 'north']
 
 #randomly assign a word to A, and make the word a list
 A = list(random.choice(word_list))
 
 #for 0 to the length of A, at index x, add an underscore to L
-for x in range(0,len(A)):
-    L.insert(x,'_')
+for x in range(0, len(A)):
+    L.insert(x, '_')
 
 while play == True:
     # Ask the user to guess a letter
@@ -50,4 +52,3 @@ while play == True:
     if (L == A):
         play = False
         print("GREAT JOB!")
-print(len(A))
