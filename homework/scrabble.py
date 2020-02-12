@@ -23,4 +23,3 @@ def wordScore(n):  # create a function that inputs a single word/string
     print("Word: %s\nScore: %d" % (word, score))
     
 wordScore("heLLo")
-#wordScore("  -!@#   word  fwdjfhs")
