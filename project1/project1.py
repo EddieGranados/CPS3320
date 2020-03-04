@@ -1,12 +1,16 @@
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
 import random
 
-data = pd.read_csv('Meteorite_Landings.csv')
-df = pd.DataFrame(data, columns=['GeoLocation'])
 
+
+data = pd.read_csv('Meteorite_Landings.csv')  # importing csv file
+df = pd.DataFrame(data, columns=['GeoLocation']) # selecting only the column with coordinates
+
+
+
+# the output of the lambda's is made into a list, and set equal to a variable 
 geoLocation = list(
     # Input is a list of float tuples
     filter(lambda latlon: latlon[0] != 0 or latlon[1] != 0,
@@ -16,19 +20,27 @@ geoLocation = list(
                map(lambda row: row.split(','), df['GeoLocation'].dropna()))))
 
 
-m = Basemap(projection='mill')
 
+m = Basemap(projection='mill') # creates a basic map
 m.drawcoastlines()
 m.drawcountries(color='red')
 m.drawstates(color="yellow")
 m.drawrivers(color='blue')
-m.bluemarble()
+m.bluemarble() # gives the map a life-like effect
 
-colors = ['bo', 'go', 'ro', 'co', 'mo', 'yo', 'ko', 'wo']
+
+
+#list of colors for points plotted
+colors = ['b.','g.','r.','c.','m.','y.']
+
+
 
 # plotting points
 for lon, lat in geoLocation:
-    x, y = m.projtran(lon, lat)        # coord transformation
-    m.plot(x, y, random.choice(colors))  # needs grid coords to plot
+    x, y = m.projtran(lon, lat) # coord transformation
+    m.plot(x, y, random.choice(colors),markersize=2) # needs grid coords to plot
 
+
+
+#displays map with plotted points
 plt.show()
