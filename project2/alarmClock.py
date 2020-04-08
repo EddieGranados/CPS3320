@@ -4,6 +4,8 @@ import datetime
 import os
 from time import sleep
 
+
+
 # Creating Clock Main Class
 class Clock(Tkinter.Tk):
  def __init__(self, *args, **kwargs):
@@ -18,12 +20,16 @@ class Clock(Tkinter.Tk):
   self.create_first_label()
   self.create_second_box()
 
- # Creating Set Alarm time Showing Label
+
+
+ # creating 'set alarm time' Label
  def create_first_label(self):
   ttk.Label(self, textvariable=self.show_alarm_time, font=("arial 20 bold")).grid(row=0, column=1, columnspan=2, padx=10, pady=10)
   return
 
- # Creating Keypad
+
+
+ # creates keypad
  def create_second_box(self):
   ttk.Label(self, text="Wait For Seconds : ").grid(row=1, column=1, padx=10, pady=10)
   ttk.Entry(self, textvariable=self.waiting_str_var).grid(row=1, column=2, padx=10, pady=10)
@@ -31,7 +37,9 @@ class Clock(Tkinter.Tk):
   ttk.Button(self, text="Set Alarm!", command=self.set_alarm_button).grid(row=3, column=2, padx=10, pady=10)
   return
 
- # Set Alarm Function
+
+
+ # Set alarm function
  def set_alarm_button(self):
   try:
    sec = self.waiting_str_var.get()
@@ -41,7 +49,9 @@ class Clock(Tkinter.Tk):
    self.waiting_str_var.set(0)
   return
 
- # Updating Loop
+
+
+ # updates loop
  def regular_update(self):
   self.update()
   self.update_idletasks()
@@ -52,6 +62,8 @@ class Clock(Tkinter.Tk):
         print(chr(7)),
         sleep(1)
   return
+
+
 
 root = Clock(className=" Alarm Clock")
 while True:

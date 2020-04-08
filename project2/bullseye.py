@@ -1,16 +1,20 @@
 import turtle
 import random
 
+
+
 # window setup
 def createWindow():
     turtle.hideturtle()
     window = turtle.Screen()
     window.title("Turtle Race")
     turtle.bgcolor("light blue")
-    turtle.speed(100)
+    turtle.speed(1000)
     turtle.penup()
     turtle.setpos(-250,255)
-    turtle.write("Click to see where the arrow lands", font=("Arial", 25, "bold"))
+    turtle.write("See where the arrow lands", font=("Arial", 25, "bold"))
+
+
 
 # Create rings for target
 def createRings():
@@ -18,7 +22,7 @@ def createRings():
     ringColors = {
         1: "white",
         2: "white",
-        3: "black",
+        3: "black", 
         4: "black",
         5: "blue",
         6: "blue",
@@ -27,11 +31,15 @@ def createRings():
         9: "yellow",
         10: "yellow"
     }
-    
+
+
+
     rings = turtle.Turtle()
     rings.hideturtle()
-    rings.speed(100)
+    rings.speed(1000)
     count = 1
+
+
 
     for i in range(160, 0,-16):
         rings.penup()
@@ -53,6 +61,8 @@ def createRings():
             rings.end_fill()
             count += 1            
 
+
+
 #target values
 def createValues():
     count = 1
@@ -73,6 +83,7 @@ def createValues():
             numbers.color("black")
 
 
+
 def shootArrow():
     #creating arrow
     arrow = turtle.Turtle()
@@ -83,7 +94,9 @@ def shootArrow():
     x = random.randint(-160, 160)
     y = random.randint(-160, 160)
     arrow.setpos(x,y)
-    arrow.dot(5,"green")
+    arrow.dot(10,"green")
+
+
 
 # finding area between rings
     # areas = []
@@ -98,6 +111,7 @@ def shootArrow():
     #         circlesArea = int(a1 - a2)
     #         areas.append(circlesArea) 
             
+
 
 createWindow()
 createRings()
