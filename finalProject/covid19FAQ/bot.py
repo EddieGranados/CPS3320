@@ -1,5 +1,3 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
 from flask import Config
 
 from botbuilder.ai.qna import QnAMaker, QnAMakerEndpoint
@@ -18,11 +16,6 @@ class MyBot(ActivityHandler):
                 host=config.QNA_ENDPOINT_HOST,
             )
         )
-
-    # See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
-
-    # async def on_message_activity(self, turn_context: TurnContext):
-        # await turn_context.send_activity(f"You said '{ turn_context.activity.text }'")
 
     async def on_message_activity(self, turn_context: TurnContext):
         # The actual call to the QnA Maker service.
